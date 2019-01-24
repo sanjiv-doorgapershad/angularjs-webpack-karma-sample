@@ -40,7 +40,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage-istanbul'],
+    reporters: ['progress', 'coverage-istanbul', 'spec'],
 
 
     // web server port
@@ -57,7 +57,7 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
+    autoWatch: true,
 
 
     // start these browsers
@@ -67,7 +67,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true,
+    singleRun: false,
 
     // Concurrency level
     // how many browser should be started simultaneous
@@ -83,6 +83,16 @@ module.exports = function(config) {
         branches: 80,
         functions: 80
       }
+    },
+
+    specReporter: {
+      maxLogLines: 5,             // limit number of lines logged per test
+      suppressErrorSummary: true, // do not print error summary
+      suppressFailed: false,      // do not print information about failed tests
+      suppressPassed: false,      // do not print information about passed tests
+      suppressSkipped: false,      // do not print information about skipped tests
+      showSpecTiming: false,      // print the time elapsed for each spec
+      failFast: false              // test would finish with error when a first fail occurs. 
     },
 
     webpack: {
